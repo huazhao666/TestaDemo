@@ -123,8 +123,7 @@ public class TestDoule {
                 }
                 return;
             }
-                cur = cur.next;
-
+            cur = cur.next;
         }
     }
     //删除全部关键字key
@@ -144,8 +143,7 @@ public class TestDoule {
                     }
                 }
             }
-                cur = cur.next;
-
+            cur = cur.next;
         }
     }
     public static void main (String[] args){
