@@ -7,7 +7,10 @@ class MyArratList {
 
     public  MyArratList(){
         this.elem = new int[6];
-        this.usedSize = 0;
+    }
+    public void resize(){//扩容
+
+        this.elem = Arrays.copyOf(this.elem,this.elem.length*2);
     }
     public void add(int pos ,int data){
         if (pos < 0 || pos > this.usedSize){
@@ -15,8 +18,7 @@ class MyArratList {
             return;
         }
         if (this.usedSize == this.elem.length){
-            System.out.println("满了，无法插入");
-            return;
+            resize();
         }
         for (int i = pos; i < this.usedSize -1; i++) {
             this.elem[i+1] = this.elem[i];
@@ -30,6 +32,7 @@ class MyArratList {
         }
         System.out.println();
     }
+    //判断是否存在
     public boolean contains(int toFind){
         for (int i = 0; i < this.usedSize; i++) {
             if (this.elem[i] == toFind) {
@@ -38,6 +41,7 @@ class MyArratList {
         }
         return false;
     }
+    //找到改下标；
     public int search(int toFind){
         for (int i = 0; i <this.usedSize ; i++) {
             if (this.elem[i] == toFind){
@@ -60,6 +64,7 @@ class MyArratList {
         }
         this.elem[pos] = value;
     }
+    //删除i
     public void remove(int toRemove){
         int index = search(toRemove);
         if (index == -1){
