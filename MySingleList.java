@@ -88,7 +88,7 @@ public class   MySingleList{
     }
   //删除第一次出现关键字为key的节点
     public void remove(int key){
-        if (this.head.data ==key ){
+        if (this.head.data ==key ){//头节点
             this.head= this.head.next;
             return;
         }
@@ -96,8 +96,7 @@ public class   MySingleList{
         if (prev == null){
             return;
         }
-        Node del = prev.next;
-        prev.next = del.next;
+        prev.next = prev.next.next;
     }
  //删除所有值为key的节点
     public void removeAllKey(int key){
@@ -315,7 +314,7 @@ public class   MySingleList{
         }
         return true;
     }
-// 判断环的第一个节点
+// 寻找环的第一个节点
     public Node detectCycle() {
         Node fast = this.head;
         Node slow = this.head;
@@ -347,7 +346,7 @@ public class   MySingleList{
                 tmp = tmp.next;
                 headA = headA.next;
             }else{
-                tmp = headB;
+                tmp.next = headB;
                 tmp = tmp.next;
                 headB =headB.next;
             }
@@ -403,9 +402,16 @@ public class   MySingleList{
       mySingleList.addFirst(3);
       mySingleList.addFirst(6);
       mySingleList.addFirst(7);
+      mySingleList.addFirst(23);
+      mySingleList.addFirst(74);
+      mySingleList.addFirst(5);
+      mySingleList.addFirst(57);
+      //mySingleList.reverseBetween()
       mySingleList.display();
-      Node ret = mySingleList.reverselL();
-      mySingleList.display2(ret);
+     // mySingleList.reverseBetween(3,6);
+      mySingleList.display();
+//      Node ret = mySingleList.reverselL();
+//      mySingleList.display2(ret);
 
 //      mySingleList.addLast(4);
 //      mySingleList.display();
